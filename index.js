@@ -17,7 +17,7 @@ app.use(function(req, res, next) {
 });
 
 
-mongoose.connect('mongodb://localhost/mern', {
+mongoose.connect(process.env.MONGODB, {
     useNewUrlParser: true,
     useUnifiedTopology: true
 }).then(() => console.log('Connected')).catch((err) => console.log(err))
