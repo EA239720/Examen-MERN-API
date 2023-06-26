@@ -88,13 +88,16 @@ app.post('/newUser', (req, res, next) => {
                     }))
                     .catch((err) => res.status(500).send({
                         "ok": false,
-                        "mensaje": "Error al registrar usuario."
+                        "mensaje": "Error al registrar usuario.",
+                        "error": err
                     }))
             }
         })
         .catch((err) => res.status(500).send({
             "ok": false,
-            "mensaje": "Error al registrar usuario."
+            "mensaje": "Error al registrar usuario.",
+            "error": err,
+            "traceError": "2"
         }))
 })
 
@@ -199,7 +202,8 @@ app.post('/login', (req, res, next) => {
             console.log(err);
             res.status(500).send({
                 "ok": false,
-                "mensaje": "Error al registrar usuario."
+                "mensaje": "Error tratar de acceder con el usuario.",
+                "error": err
             })
         })
 })
